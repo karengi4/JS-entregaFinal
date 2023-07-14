@@ -1,81 +1,107 @@
+//SIMULADOR INTERACTIVO PARA UNA CONSULTORA DE RECURSOS HUMANOS
+
 // Definir los servicios disponibles y sus precios
-const servicios = {
+let servicios = {
   "Búsqueda y selección": 10000,
   "Gestión integral del talento": 15000,
   "Evaluación y desarrollo profesional": 12000,
   "Capacitación y formación": 8000,
   "Compensación y beneficios": 8500,
-  "Asesoria personalizada": 18000,
+  "Asesoría personalizada": 18000,
 };
 
 // Carrito de compras vacío
-const carrito = {};
+let carrito = {};
 
-// Agregar un servicio al carrito
+// Función para agregar un servicio al carrito
 function agregarAlCarrito() {
   let opciones = "";
   let index = 1;
 
-  for (const servicio in servicios) {
+  // Opciones de servicios disponibles
+  for (let servicio in servicios) {
     opciones += `${index}. ${servicio}\n`;
     index++;
   }
 
-  const opcion = parseInt(prompt(`Seleccione el número del servicio que desea agregar a su carrito:\n\n${opciones}`));
+  const opcion = parseInt(prompt(`Seleccione el número de servicio que desea agregar al carrito:\n\n${opciones}`));
 
-  let servicioElegido;
-  let i = 1;
+  // Condicional para verificar si la opción seleccionada existe
+  if (opcion >= 1 && opcion <= Object.keys(servicios).length) {
+    let servicio = Object.keys(servicios)[opcion - 1];
 
-  for (const servicio in servicios) {
-    if (i === opcion) {
-      servicioElegido = servicio;
-      break;
-    }
-    i++;
-  }
-
-  if (servicioElegido) {
-    if (carrito.hasOwnProperty(servicioElegido)) {
-      carrito[servicioElegido]++;
+    // Agregar el servicio al carrito
+    if (carrito.hasOwnProperty(servicio)) {
+      carrito[servicio]++;
     } else {
-      carrito[servicioElegido] = 1;
+      carrito[servicio] = 1;
     }
 
-    alert(`Servicio "${servicioElegido}" agregado al carrito.`);
+    console.log("Servicio agregado al carrito:", servicio);
+    alert(`Servicio "${servicio}" agregado al carrito.`);
   } else {
+    console.log("Opción inválida:", opcion);
     alert("Opción inválida. Por favor, seleccione una opción válida.");
   }
 }
 
-// Calculo del precio total de todos los servicios agregados al carrito
+// Función para calcular el precio total de los servicios en el carrito
 function calcularPrecioTotal() {
   let precioTotal = 0;
 
-  for (const servicio in carrito) {
-    if (servicios.hasOwnProperty(servicio)) {
-      const cantidad = carrito[servicio];
-      precioTotal += servicios[servicio] * cantidad;
+  // Bucle para calcular el precio total sumando los precios de los servicios que cargo al carrito
+  for (let servicio in carrito) {
+    if (carrito.hasOwnProperty(servicio) && servicios.hasOwnProperty(servicio)) {
+      let cantidad = carrito[servicio];
+      let precio = servicios[servicio];
+      precioTotal += precio * cantidad;
     }
   }
 
+  console.log("Precio total calculado:", precioTotal);
   return precioTotal;
 }
 
-while (true) {
-  const opcion = prompt(`Seleccione una opción:
+// Función con bucle para ejecutar el simulador
+function simulador() {
+  let opcion;
+
+  while (opcion !== "3") {
+    opcion = prompt(`Seleccione una opción:
   1. Agregar servicio al carrito
   2. Calcular precio total
   3. Salir`);
 
-  if (opcion === "1") {
-    agregarAlCarrito();
-  } else if (opcion === "2") {
-    const precioTotal = calcularPrecioTotal();
-    alert(`Precio total: $${precioTotal}`);
-  } else if (opcion === "3") {
-    alert("Gracias por utilizar este simulador.");
-    break;
-  } else {
-    alert("Opción inválida. Por favor, seleccione una opción válida.");
+    if (opcion === "1") {
+      agregarAlCarrito();
+    } else if (opcion === "2") {
+      let precioTotal = calcularPrecioTotal();
+      console.log("Precio total:", precioTotal);
+      alert(`Precio total: $${precioTotal}`);
+    } else if (opcion === "3") {
+      console.log("Saliendo del simulador");
+      alert("Gracias por utilizar este simulador.");
+    } else {
+      console.log("Opción inválida:", opcion);
+      alert("Opción inválida. Por favor, seleccione una opción válida.");
+    }
   }
 }
+
+// Iniciar el simulador
+simulador();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
