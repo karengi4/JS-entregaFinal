@@ -1,77 +1,79 @@
 //SIMULADOR INTERACTIVO PARA UNA CONSULTORA DE RECURSOS HUMANOS
 
 // Definir los servicios disponibles y sus precios
-let servicios = {
-  "Búsqueda y selección": 10000,
-  "Gestión integral del talento": 15000,
-  "Evaluación y desarrollo profesional": 12000,
-  "Capacitación y formación": 8000,
-  "Compensación y beneficios": 8500,
-  "Asesoría personalizada": 18000,
-};
+const servicios = [
+  { nombre: "Búsqueda y selección", precio: 10000 },
+  { nombre: "Gestión integral del talento", precio: 15000 },
+  { nombre: "Evaluación y desarrollo profesional", precio: 12000 },
+  { nombre: "Capacitación y formación", precio: 8000 },
+  { nombre: "Compensación y beneficios", precio: 8500 },
+  { nombre: "Asesoría personalizada", precio: 18000 },
+];
 
-// Carrito de compras vacío
-let carrito = {};
+// Carrito de compras inicializado como un array vacío
+const carrito = [];
+
+// Función para mostrar las opciones disponibles
+function mostrarOpciones() {
+  return prompt(`Seleccione una opción:
+  1. Agregar servicio al carrito
+  2. Calcular precio total
+  3. Salir`);
+}
 
 // Función para agregar un servicio al carrito
 function agregarAlCarrito() {
   let opciones = "";
-  let index = 1;
 
   // Opciones de servicios disponibles
-  for (let servicio in servicios) {
-    opciones += `${index}. ${servicio}\n`;
-    index++;
-  }
+  servicios.forEach((servicio, index) => {
+    opciones += `${index + 1}. ${servicio.nombre} - Precio: $${servicio.precio}\n`;
+  });
 
-  const opcion = parseInt(prompt(`Seleccione el número de servicio que desea agregar al carrito:\n\n${opciones}`));
+  let opcion = NaN; // Inicializar la opción como un valor no numérico
 
-  // Condicional para verificar si la opción seleccionada existe
-  if (opcion >= 1 && opcion <= Object.keys(servicios).length) {
-    let servicio = Object.keys(servicios)[opcion - 1];
-
-    // Agregar el servicio al carrito
-    if (carrito.hasOwnProperty(servicio)) {
-      carrito[servicio]++;
-    } else {
-      carrito[servicio] = 1;
+  while (isNaN(opcion) || opcion < 1 || opcion > servicios.length) {
+    opcion = parseInt(prompt(`Seleccione el número de servicio que desea agregar al carrito:\n\n${opciones}`));
+    if (isNaN(opcion) || opcion < 1 || opcion > servicios.length) {
+      alert("Opción inválida. Por favor, seleccione una opción válida.");
     }
-
-    console.log("Servicio agregado al carrito:", servicio);
-    alert(`Servicio "${servicio}" agregado al carrito.`);
-  } else {
-    console.log("Opción inválida:", opcion);
-    alert("Opción inválida. Por favor, seleccione una opción válida.");
   }
+
+  const servicioSeleccionado = servicios[opcion - 1];
+
+  // Buscar el servicio en el carrito
+  const servicioEnCarrito = carrito.find(item => item.servicio.nombre === servicioSeleccionado.nombre);
+
+  // Agregar el servicio en el carrito
+  if (servicioEnCarrito) {
+    servicioEnCarrito.cantidad++;
+    if (servicioEnCarrito.cantidad < 0) {
+      servicioEnCarrito.cantidad = 0; // Asegurar que la cantidad no sea negativa
+    }
+  }else {
+    carrito.push({ servicio: servicioSeleccionado, cantidad: 1 });
+  }
+
+  console.log("Servicio agregado al carrito:", servicioSeleccionado.nombre);
+  alert(`Servicio "${servicioSeleccionado.nombre}" agregado al carrito.`);
 }
 
 // Función para calcular el precio total de los servicios en el carrito
 function calcularPrecioTotal() {
-  let precioTotal = 0;
-
-  // Bucle para calcular el precio total sumando los precios de los servicios que cargo al carrito
-  for (let servicio in carrito) {
-    if (carrito.hasOwnProperty(servicio) && servicios.hasOwnProperty(servicio)) {
-      let cantidad = carrito[servicio];
-      let precio = servicios[servicio];
-      precioTotal += precio * cantidad;
-    }
-  }
+  const precioTotal = carrito.reduce((total, item) => {
+    return total + item.servicio.precio * item.cantidad;
+  }, 0);
 
   console.log("Precio total calculado:", precioTotal);
   return precioTotal;
 }
 
 // Función con bucle para ejecutar el simulador
-function simulador() {
+function ejecutarSimulador() {
   let opcion;
 
   while (opcion !== "3") {
-    opcion = prompt(`Seleccione una opción:
-  1. Agregar servicio al carrito
-  2. Calcular precio total
-  3. Salir`);
-
+    opcion = mostrarOpciones();
     if (opcion === "1") {
       agregarAlCarrito();
     } else if (opcion === "2") {
@@ -89,19 +91,4 @@ function simulador() {
 }
 
 // Iniciar el simulador
-simulador();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ejecutarSimulador();
