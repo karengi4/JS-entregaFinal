@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  &::selection{
+    color: #a54b2a;
+    background-color: #3fadad;
+  }
+}
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* Estilos generales */
+
+h1 {
+  font-size: 2.5rem;
+  font-family: "Acme", sans-serif;
+}
+
+.seccion-oscura {
+  color: $texto-claro;
+  background-color: $seccion-oscura;
+}
+
+.seccion-clara {
+  color: $texto-oscuro;
+  background-color: $seccion-clara;
+}
+
+.seccion-titulo {
+  font-size: 2rem;
+  padding: 15px 0;
+  font-family: "Acme", sans-serif;
+}
+
+.seccion-descripcion {
+  font-size: $texto-descripcion;
+}
+
+.seccion-texto {
+  font-size: 1.2rem;
+}
+
+.btn-info {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.btn-outline-primary{
+  font-size: 1.1rem;
+  padding: 0;
+  font-weight: bold;
+  width: 80px;
+}

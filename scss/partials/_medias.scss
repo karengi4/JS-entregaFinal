@@ -1,0 +1,18 @@
+@media screen and (max-width:768px){
+  .navbar-brand{
+    display: none;
+  } 
+}
+
+@media screen and (max-width:425px){
+  .contacto .container{
+    .rectangulo{
+      margin-top: 0rem;
+    } 
+  }   
+
+  .carousel-inner{
+    padding: 30px 0 30px 0;
+    line-height: normal;
+  }
+}

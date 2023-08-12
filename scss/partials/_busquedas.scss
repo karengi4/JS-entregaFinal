@@ -1,0 +1,21 @@
+.busquedas{
+  padding: 50px;
+}  
+
+.busquedas-listado{
+  min-height: 500px;
+  .card{
+    width: 80%;
+    max-width: 600px;
+    margin: 15px;
+    .card-header{
+      font-weight: bold;
+    }
+    .btn-outline-naranja{
+      @include botones;
+    }
+  }
+}
+.container .btn-outline-naranja{
+  @include botones;
+}

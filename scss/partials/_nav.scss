@@ -1,0 +1,13 @@
+.navbar{
+  padding: 2rem;
+  background-color: $seccion-clara;
+  .navbar-collapse{
+    .navbar-brand img{
+      width: 180px;
+    }
+  }
+  .active{
+    text-decoration: underline wavy $decoracion;
+    text-underline-offset: 9px;
+  }
+}

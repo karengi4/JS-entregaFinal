@@ -1,0 +1,31 @@
+@mixin boton-contacto ($padding, $margin, $color, $background, $border, $radius, $font, $transition){
+  padding: $padding;
+  margin: $margin;
+  color: $color;
+  background-color: $background;
+  border: $border;
+  border-radius: $radius;
+  font-weight: $font;
+  transition: $transition;
+}
+  
+@mixin box ($padding, $margin){
+  padding: $padding;
+  margin: $margin;
+}
+
+@mixin nosotros ($fonts, $fontw, $margin){
+  font-size: $fonts;
+  font-weight: $fontw;
+  margin: $margin;
+}
+
+@mixin botones {
+    background-color: $decoracion;
+    color: $texto-oscuro;
+    font-weight: bold;
+    &:hover{
+      color: $decoracion;
+      background-color:$texto-oscuro;
+    }
+}

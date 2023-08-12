@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultora de Recursos Humanos">
+    <meta name="keywords" content="consultora, recursos humanos, talento, capital humano, rrhh">
+    <!-- Titulo -->
+    <title>Mi Kapital | Servicios</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Quicksand:wght@500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <script defer src="../js/servicios.js"></script>
+  </head>
+
+  <body>
+    <!-- Barra de navegacion -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light p-1">
+        <div class="container-fluid justify-content-beetween">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-evenly" id="navbar-toggler">
+            <a class="navbar-brand" href="../index.html">
+              <img src="../assets/images/footer.png" width="150" alt="Logo de la consultora">
+            </a>
+            <ul class="navbar-nav d-flex justify-content-center align-items-center">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./nosotros.html">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./servicios.html">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./busquedas.html">Busquedas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Servicios encabezado -->
+    <main>
+      <section class="servicios-contenedor seccion-oscura d-flex flex-column justify-content-center align-items-center">
+        <div class="servicios-encabezado text-center">
+          <h2 class="seccion-titulo">SERVICIOS</h2>
+          <p class="seccion-descripcion">Nuestros profesionales especializados ofrecen una amplia gama de servicios para garantizar el acceso a las mejores soluciones en la gestión de talento.<br> Además brindamos soluciones a la medida de cada empresa.</p>
+        </div>
+      </section>
+
+      <!-- Detalle de servicios -->
+      <section class="seccion-clara d-flex flex-column justify-content-center align-items-center">  
+        <div class="container text-center servicios-listado">
+          <div class="row" id="servicios-row">
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="carrito">
+      <h2>Carrito de Compras</h2>
+      <ul id="carrito-list">
+
+      </ul>
+      <p id="precio-total-output"></p>
+      <button id="vaciar-btn" class="btn btn-info">Vaciar Carrito</button>
+      <button id="confirmar-btn" class="btn btn-info">Confirmar y Continuar</button>
+    </aside>
+
+    <div id="mensaje-container" class="mensaje-container"></div>
+  
+    <!-- Footer -->
+    <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center mt-2">
+      <img data-aos="flip-left" class="footer-logo" src="../assets/images/footer.png" alt="Logo de la consultora">
+      <p class="footer-texto text-center">Creamos oportunidades.<br>Potenciamos el talento.</p>
+      <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="mailto:mikapital@miemail.com" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-envelope"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5492920253766&text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+      </div>
+      <div class="derechos-de-autor text-center">Todos los derechos reservados 2022 | &#169; Mi Kapital
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

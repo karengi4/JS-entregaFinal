@@ -1,0 +1,407 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*::-moz-selection {
+  color: rgb(165, 75, 42);
+  background-color: rgb(63, 173, 173);
+}
+*::selection {
+  color: rgb(165, 75, 42);
+  background-color: rgb(63, 173, 173);
+}
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* Estilos generales */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: "Acme", sans-serif;
+}
+
+.seccion-oscura {
+  color: white;
+  background-color: #1b1b32;
+}
+
+.seccion-clara {
+  color: black;
+  background-color: white;
+}
+
+.seccion-titulo {
+  font-size: 2rem;
+  padding: 15px 0;
+  font-family: "Acme", sans-serif;
+}
+
+.seccion-descripcion {
+  font-size: 1.2rem;
+  color: #584e4e;
+}
+
+.seccion-texto {
+  font-size: 1.2rem;
+}
+
+.texto-negro {
+  color: black;
+}
+
+.texto-blanco {
+  color: white;
+}
+
+.navbar {
+  padding: 2rem;
+  background-color: #f5f6f7;
+}
+.navbar .navbar-collapse {
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .navbar-collapse .navbar-brand img {
+  width: 180px;
+}
+.navbar .active {
+  -webkit-text-decoration: underline wavy coral;
+          text-decoration: underline wavy coral;
+  text-underline-offset: 9px;
+}
+
+.hero {
+  background-color: #f5f6f7;
+  min-height: 450px;
+  text-align: center;
+}
+.hero .hero-principal {
+  padding: 5rem;
+}
+.hero .hero-principal .hero-principal h2 {
+  font-size: 1.5rem;
+}
+.hero .hero-inferior iframe {
+  width: 80%;
+  height: 300px;
+  padding: 20px;
+}
+
+.nosotros {
+  padding: 40px;
+}
+.nosotros .contenedor {
+  max-width: 600px;
+  text-align: center;
+}
+
+.nosotros-inferior {
+  padding: 40px;
+}
+.nosotros-inferior .columna {
+  font-size: 20px;
+  padding: 20px;
+  border: 2px solid rgba(128, 128, 128, 0.3019607843);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: all 0.2s ease-in;
+}
+.nosotros-inferior .columna:hover {
+  color: white;
+  background-color: #1b1b32;
+}
+.nosotros-inferior .columna:hover img {
+  width: 100%;
+  padding: 0;
+  border-radius: 10%;
+}
+.nosotros-inferior .columna:hover .nosotros-titulo {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.nosotros-inferior .columna:hover .badge-contenedor {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.nosotros-inferior .columna:hover .badge-contenedor .badge {
+  margin: 5px;
+}
+
+.testimonios {
+  padding: 40px 40px 80px 40px;
+}
+.testimonios .carousel {
+  max-width: 800px;
+}
+.testimonios .carousel .carousel-item {
+  height: 500px;
+}
+.testimonios .carousel .carousel-item .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.testimonios .carousel .carousel-item .container .testimonio-imagen {
+  height: 150px;
+  width: 150px;
+  margin: 10px 10px 20px 10px;
+}
+.testimonios .carousel .carousel-item .container .testimonio-texto {
+  max-width: 70%;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Share Tech Mono", monospace;
+}
+.testimonios .carousel .carousel-item .container .testimonio-info {
+  font-weight: bold;
+  text-align: center;
+}
+.testimonios .carousel .carousel-item .container .testimonio-info p {
+  margin-bottom: 0;
+}
+.testimonios .carousel .carousel-item .container .testimonio-info p .cliente {
+  font-size: 1.2rem;
+}
+.testimonios .carousel .carousel-item .container .testimonio-info p .cargo {
+  font-size: 0.9rem;
+  color: #656060;
+}
+
+.servicios-contenedor {
+  padding: 40px;
+}
+.servicios-contenedor .servicios-encabezado {
+  max-width: 600px;
+  text-align: center;
+}
+
+.servicios-listado {
+  padding-top: 60px;
+  margin-bottom: 40px;
+}
+.servicios-listado .servicios {
+  position: relative;
+}
+.servicios-listado .servicios img {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  transition: all 0.2s ease;
+}
+.servicios-listado .servicios .overlay {
+  transition: all 0.2s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.servicios-listado .servicios .overlay h3 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.servicios-listado .servicios:hover img {
+  opacity: 0.2;
+}
+.servicios-listado .servicios:hover .overlay {
+  opacity: 1;
+}
+
+.busquedas {
+  padding: 40px;
+}
+.busquedas .contenedor {
+  max-width: 600px;
+  text-align: center;
+}
+
+.busquedas-listado {
+  min-height: 500px;
+  padding: 30px;
+}
+.busquedas-listado .card {
+  width: 80%;
+  max-width: 600px;
+  margin: 15px;
+}
+.busquedas-listado .card .card-header {
+  font-weight: bold;
+}
+
+.encabezado-contacto {
+  min-height: 400px;
+}
+.encabezado-contacto .parrafo-contacto {
+  font-size: 1.3rem;
+}
+
+.contacto .container {
+  max-width: 1100px;
+  min-height: 200px;
+  padding: 20px;
+}
+.contacto .container .rectangulo {
+  margin-top: -5rem;
+  background-color: rgb(13, 109, 253);
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px 1px white;
+}
+.contacto .container .rectangulo .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.contacto .container .rectangulo .row .descripcion {
+  color: white;
+  font-size: 1.2rem;
+}
+.contacto .container .rectangulo button {
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 1.25em 2em;
+  margin: 10px;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+.contacto .container .rectangulo button:hover {
+  background-color: white;
+  color: black;
+}
+.contacto .container .rectangulo button i {
+  color: white;
+  font-size: 1.3rem;
+  transition: all 0.2s ease-in-out;
+}
+.contacto .container .rectangulo button:hover i {
+  color: black;
+}
+
+.contacto-inferior form {
+  padding: 10px;
+  margin: 10px;
+  color: black;
+  box-shadow: inset 0 -3em 3em rgba(102, 144, 233, 0.753), 0 0 0 2px rgba(29, 7, 235, 0.527), 0.3em 0.3em 1em rgba(12, 72, 128, 0.952);
+}
+.contacto-inferior form button {
+  color: black;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid black;
+  padding: 1em;
+  margin: 10px;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+.contacto-inferior form button:hover {
+  background-color: black;
+  color: white;
+}
+.contacto-inferior form button i {
+  color: black;
+  font-size: 1.3rem;
+  transition: all 0.2s ease-in-out;
+}
+.contacto-inferior form button:hover i {
+  color: white;
+}
+.contacto-inferior .video-contacto {
+  width: 100%;
+  height: 400px;
+}
+
+footer {
+  min-height: 500px;
+}
+footer .footer-logo {
+  height: 80px;
+  width: 150;
+  margin: 10px;
+}
+footer .footer-texto {
+  font-size: 1.5rem;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-family: "Quicksand", sans-serif;
+}
+footer .iconos-redes-sociales a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+footer .iconos-redes-sociales a:hover {
+  background-color: white;
+  border: 2px solid rgb(13, 109, 253);
+}
+footer .iconos-redes-sociales a:hover i {
+  color: black;
+}
+footer .iconos-redes-sociales a i {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in;
+}
+footer .derechos-de-autor {
+  font-size: 15px;
+  color: #aeaeae;
+  padding: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  .overlay p {
+    font-size: 18px;
+  }
+  .carousel-inner {
+    padding-top: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar-brand {
+    display: none;
+  }
+  .hero-inferior {
+    flex-direction: column;
+  }
+  .contacto-inferior {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 800px) {
+  .testimonio-imagen {
+    height: 120px;
+    width: 120px;
+  }
+  .testimonio-texto {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=style.css.map */
