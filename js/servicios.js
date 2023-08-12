@@ -43,16 +43,16 @@ const carrito = [];
 
 // Función para agregar un servicio al carrito
 function agregarAlCarrito(index, precio) {
-const servicio = servicios[index];
-const servicioEnCarrito = carrito.find(item => item.servicio.nombre === servicio.nombre);
+  const servicio = servicios[index];
+  const servicioEnCarrito = carrito.find(item => item.servicio.nombre === servicio.nombre);
 
-if (servicioEnCarrito) {
-  servicioEnCarrito.cantidad++;
-} else {
-  carrito.push({ servicio, cantidad: 1 });
-}
+  if (servicioEnCarrito) {
+    servicioEnCarrito.cantidad++;
+  } else {
+    carrito.push({ servicio, cantidad: 1 });
+  }
 
-mostrarCarrito();
+  mostrarCarrito();
 }
 
 function vaciarCarrito() {
@@ -60,26 +60,29 @@ function vaciarCarrito() {
   mostrarCarrito();
 }
 
-function cerrarCarrito() {
-  alert("Gracias por su compra. Carrito cerrado.");
-  carrito.length = 0;
-  mostrarCarrito();
+function confirmarCompra() {
+  const confirmacion = confirm("¿Deseas confirmar tu compra?");
+  if (confirmacion) {
+    vaciarCarrito();
+    mostrarCarrito();
+    mostrarMensaje("¡Gracias por tu compra!", "success");
+  }
 }
 
 function mostrarCarrito() {
-const carritoList = document.getElementById("carrito-list");
-const precioTotalOutput = document.getElementById("precio-total-output");
-carritoList.innerHTML = "";
-let precioTotal = 0;
+  const carritoList = document.getElementById("carrito-list");
+  const precioTotalOutput = document.getElementById("precio-total-output");
+  carritoList.innerHTML = "";
+  let precioTotal = 0;
 
-carrito.forEach((item, index) => {
-  const li = document.createElement("li");
-  li.textContent = `${index + 1}. ${item.servicio.nombre} - Cantidad: ${item.cantidad} - Subtotal: $${item.servicio.precio * item.cantidad}`;
-  carritoList.appendChild(li);
-  precioTotal += item.servicio.precio * item.cantidad;
-});
+  carrito.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${index + 1}. ${item.servicio.nombre} - Cantidad: ${item.cantidad} - Subtotal: $${item.servicio.precio * item.cantidad}`;
+    carritoList.appendChild(li);
+    precioTotal += item.servicio.precio * item.cantidad;
+  });
 
-precioTotalOutput.textContent = `Precio total: $${precioTotal}`;
+  precioTotalOutput.textContent = `Precio total: $${precioTotal}`;
 }
 
 // Event listeners para los botones "Agregar al carrito"
@@ -92,34 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const index = event.target.dataset.index;
       const precio = parseFloat(event.target.dataset.precio);
       agregarAlCarrito(index, precio);
+      mostrarNotificacion("Servicio agregado al carrito", "success");
     });
   });
+
   const vaciarBtn = document.getElementById("vaciar-btn");
   vaciarBtn.addEventListener("click", vaciarCarrito);
 
-  const cerrarBtn = document.getElementById("cerrar-btn");
-  cerrarBtn.addEventListener("click", cerrarCarrito);
+  const confirmarBtn = document.getElementById("confirmar-btn");
+  confirmarBtn.addEventListener("click", confirmarCompra);
 });
-
-const mensajeContainer = document.getElementById("mensaje-container");
-
-document.getElementById("confirmar-btn").addEventListener("click", function () {
-  const confirmacion = confirm("¿Deseas confirmar tu compra?");
-  if (confirmacion) {
-    vaciarCarrito();
-    document.getElementById("carrito-list").innerHTML = "";
-    document.getElementById("precio-total-output").textContent = "Total: $0";
-    mostrarMensaje("¡Gracias por tu compra!", "success");
-  }
-});
-
-function mostrarMensaje(mensaje, tipo) {
-  const mensajeDiv = document.createElement("div");
-  mensajeDiv.classList.add("mensaje", tipo);
-  mensajeDiv.textContent = mensaje;
-  mensajeContainer.appendChild(mensajeDiv);
-
-  setTimeout(function () {
-    mensajeDiv.remove();
-  }, 3000);
-}
