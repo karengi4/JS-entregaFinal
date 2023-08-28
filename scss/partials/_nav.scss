@@ -6,8 +6,18 @@
       width: 180px;
     }
   }
-  .active{
-    text-decoration: underline wavy $decoracion;
-    text-underline-offset: 9px;
+  .navbar-nav .nav-link {
+    text-decoration: none;
+    color: #000; 
+    transition: text-decoration 0.3s, color 0.3s;
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px; 
+      color: #1c4b7c; 
+    }
+    &.active {
+      text-decoration: underline wavy $decoracion;
+      text-underline-offset: 9px;
+    }
   }
 }

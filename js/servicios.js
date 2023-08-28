@@ -1,16 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const serviciosJSON = `
-    [
-      { "nombre": "Búsqueda y selección", "descripcion": "Llevamos a cabo la totalidad del proceso de búsqueda y selección de recursos humanos...", "precio": 10000, "imagen": "busqueda.webp" },
-      { "nombre": "Gestión integral del talento", "descripcion": "Ponemos en marcha distintos procesos como el análisis de la estructura organizacional...", "precio": 15000, "imagen": "gestion.webp" },
-      { "nombre": "Evaluación y desarrollo profesional", "descripcion": "Este proceso se aplica especialmente para valorar los recursos y las competencias...", "precio": 12000, "imagen": "desarrollo.webp" },
-      { "nombre": "Capacitación y formación", "descripcion": "Brindamos capacitaciones de RRHH a empresas en función de sus necesidades...", "precio": 8000, "imagen": "formacion.webp" },
-      { "nombre": "Compensación y beneficios", "descripcion": "Para tener una relación exitosa con tus empleados es fundamental que el trabajo sea correctamente remunerado...", "precio": 8500, "imagen": "compensacion.webp" },
-      { "nombre": "Asesoría personalizada", "descripcion": "A través de este asesoramiento integral externo, nuestros clientes delegan su Gestión Interna...", "precio": 18000, "imagen": "asesoria.webp" }
-    ]
-  `;
-
-  const servicios = JSON.parse(serviciosJSON);
+document.addEventListener("DOMContentLoaded", async () => {
+  const serviciosJSON = await fetch('../data/servicios.json');
+  const servicios = await serviciosJSON.json();
   let carrito = [];
 
   function mostrarServicios() {
@@ -37,6 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function mostrarToast(mensaje, colorFondo) {
+    Toastify({
+      text: mensaje,
+      duration: 3000,
+      close: true,
+      gravity: "center",
+      position: "right",
+      backgroundColor: colorFondo,
+      stopOnFocus: true,
+      className: "toastify-custom",
+    }).showToast();
+  }
   function agregarAlCarrito(index, precio) {
     const servicio = servicios[index];
     const servicioEnCarrito = carrito.find(item => item.servicio.nombre === servicio.nombre);
@@ -46,21 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       carrito.push({ servicio, cantidad: 1 });
     }
-
-    mostrarNotificacion(`${servicio.nombre} se ha agregado al carrito.`);
+    mostrarToast(`${servicio.nombre} se ha agregado al carrito.`,"#00B09B");
     actualizarCarrito();
+
   }
 
   function mostrarNotificacion(mensaje) {
-    const notificacionDiv = document.createElement("div");
-    notificacionDiv.classList.add("alert", "alert-success", "notificacion");
-    notificacionDiv.textContent = mensaje;
-    const notificacionContainer = document.getElementById("notificacion-container");
-    notificacionContainer.appendChild(notificacionDiv);
-
-    setTimeout(() => {
-      notificacionDiv.remove();
-    }, 3000);
+    mostrarToast(mensaje, "#00B09B");
   }
 
   function actualizarCarrito() {
@@ -81,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   mostrarServicios();
-  
+
   const agregarBtns = document.querySelectorAll(".agregar-btn");
   agregarBtns.forEach(btn => {
     btn.addEventListener("click", event => {
@@ -101,15 +95,38 @@ document.addEventListener("DOMContentLoaded", () => {
   vaciarBtn.addEventListener("click", () => {
     carrito.length = 0;
     actualizarCarrito();
+    Toastify({
+      text: "El carrito ha sido vaciado.",
+      style: {
+        background: "rgba(0, 128, 0, 0.8)",
+        color: "#ffffff",
+      },
+    }).showToast();
   });
+
 
   const confirmarBtn = document.getElementById("confirmar-btn");
   confirmarBtn.addEventListener("click", () => {
-    const confirmacion = confirm("¿Deseas confirmar tu compra?");
-    if (confirmacion) {
-      carrito.length = 0;
-      actualizarCarrito();
-      mostrarNotificacion("¡Gracias por tu compra!");
-    }
+    Swal.fire({
+      title: "¿Deseas confirmar tu compra?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#00CC99",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirmar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        carrito.length = 0;
+        actualizarCarrito();
+        Toastify({
+          text: "¡Gracias por tu compra!",
+          style: {
+            background: "rgba(0, 128, 0, 0.8)",
+            color: "#ffffff",
+          },
+        }).showToast();
+      }
+    });
   });
-});
+})

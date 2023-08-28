@@ -1,5 +1,5 @@
 {
-  "name": "tercerEntregaJS",
+  "name": "JS-entregaFinal",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000p\u0000f\u0000-\u0000l\u0000e\u0000o\u0000n\u0000-\u0000m\u0000o\u0000u\u0000r\u0000g\u0000u\u0000e\u0000s\u0000\r\u0000 \u0000",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karengi4/tercerEntregaJS.git"
+    "url": "git+https://github.com/karengi4/JS-entregaFinal.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/karengi4/tercerEntregaJS.git"
+    "url": "https://github.com/karengi4/JS-entregaFinal.git"
   },
-  "homepage": "https://github.com/karengi4/tercerEntregaJS#readme",
+  "homepage": "https://github.com/karengi4/JS-entregaFinal#readme",
   "devDependencies": {
     "node-sass": "^8.0.0",
     "nodemon": "^2.0.20"

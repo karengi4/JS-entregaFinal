@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre": "Búsqueda y selección",
+    "descripcion": "Llevamos a cabo la totalidad del proceso de búsqueda y selección de recursos humanos...",
+    "precio": 10000,
+    "imagen": "busqueda.webp"
+  },
+  {
+    "id": 2,
+    "nombre": "Gestión integral del talento",
+    "descripcion": "Ponemos en marcha distintos procesos como el análisis de la estructura organizacional...",
+    "precio": 150000,
+    "imagen": "gestion.webp"
+  },
+  {
+    "id": 3,
+    "nombre": "Evaluación y desarrollo profesional",
+    "descripcion": "Este proceso se aplica especialmente para valorar los recursos y las competencias...",
+    "precio": 12000,
+    "imagen": "desarrollo.webp"
+  },
+  {
+    "id": 4,
+    "nombre": "Capacitación y formación",
+    "descripcion": "Brindamos capacitaciones de RRHH a empresas en función de sus necesidades...",
+    "precio":8000,
+    "imagen": "formacion.webp"
+  },
+  {
+    "id": 5,
+    "nombre": "Compensación y beneficios",
+    "descripcion": "Para tener una relación exitosa con tus empleados es fundamental que el trabajo sea correctamente remunerado...",
+    "precio": 8500,
+    "imagen": "compensacion.webp"
+  },
+  {
+    "id": 6,
+    "nombre": "Asesoría personalizada",
+    "descripcion": "A través de este asesoramiento integral externo, nuestros clientes delegan su Gestión Interna...",
+    "precio": 18000,
+    "imagen": "asesoria.webp"
+  }
+]
