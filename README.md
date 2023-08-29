@@ -1,6 +1,6 @@
-                                                 ﻿JAVASCRIPT - Comisión 43155 - CODER HOUSE
+JAVASCRIPT - Comisión 43155 - CODER HOUSE
                                                
-                                              ![Logo de la Consultora](./assets/images/footer.png)
+![Logo de la Consultora](./assets/images/footer.png)
 
 # Consultora de Recursos Humanos - Mi Kapital
 Este repositorio contiene una aplicación web interactiva para una Consultora de Recursos Humanos llamada "Mi Kapital". La aplicación permite a los usuarios explorar diferentes servicios ofrecidos por la consultora, agregar servicios al carrito de compras y confirmar la compra.
