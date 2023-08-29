@@ -1,6 +1,6 @@
-﻿JAVASCRIPT - Comisión 43155 - CODER HOUSE
- 
-![Logo de la Consultora](./assets/images/footer.png)
+                                                 ﻿JAVASCRIPT - Comisión 43155 - CODER HOUSE
+                                               
+                                              ![Logo de la Consultora](./assets/images/footer.png)
 
 # Consultora de Recursos Humanos - Mi Kapital
 Este repositorio contiene una aplicación web interactiva para una Consultora de Recursos Humanos llamada "Mi Kapital". La aplicación permite a los usuarios explorar diferentes servicios ofrecidos por la consultora, agregar servicios al carrito de compras y confirmar la compra.
@@ -56,7 +56,7 @@ Si deseas contribuir a este proyecto, puedes hacerlo de la siguiente manera:
 Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nosotros en [mikapital@example.com](mailto:mikapital@example.com).
 
 ## Autor
-- Karen Leon - Diseño wireframe, desarrollo web y javascript - [karengi4] (https://github.com/karengi4)
+- Karen Leon - Diseño wireframe, desarrollo web y javascript - [karengi4](https://github.com/karengi4)
   
 ---
 
